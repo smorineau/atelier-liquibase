@@ -1,0 +1,8 @@
+version: '2'
+services:
+  database:
+    image: store/oracle/database-enterprise:12.2.0.1
+    container_name: ora12
+    hostname: ora12
+    ports:
+    - "1521:1521"
