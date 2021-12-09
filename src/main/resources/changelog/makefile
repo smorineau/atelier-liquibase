@@ -1,8 +1,17 @@
-update:
-	docker run --rm --network liquibase-with-oracle_default -v /Users/seb/projects/liquibase-with-oracle/src/main/resources/changelog:/liquibase/changelog liquibase/liquibase --defaultsFile=/liquibase/changelog/liquibase.properties update
-
 version:
 	docker run --rm liquibase/liquibase --version
 
+update:
+	docker run --rm --network liquibase-with-oracle_default -v /Users/seb/projects/liquibase-with-oracle/src/main/resources/changelog:/liquibase/changelog liquibase/liquibase --defaultsFile=/liquibase/changelog/liquibase.properties --labels=test update
+
+updateSQL:
+	docker run --rm --network liquibase-with-oracle_default -v /Users/seb/projects/liquibase-with-oracle/src/main/resources/changelog:/liquibase/changelog liquibase/liquibase --defaultsFile=/liquibase/changelog/liquibase.properties --labels=test updateSQL
+
 dropall:
 	docker run --rm --network liquibase-with-oracle_default -v /Users/seb/projects/liquibase-with-oracle/src/main/resources/changelog:/liquibase/changelog liquibase/liquibase --defaultsFile=/liquibase/changelog/liquibase.properties dropAll
+
+update-prod:
+	docker run --rm --network liquibase-with-oracle_default -v /Users/seb/projects/liquibase-with-oracle/src/main/resources/changelog:/liquibase/changelog liquibase/liquibase --defaultsFile=/liquibase/changelog/liquibase.properties --username=prod --password=prod update
+
+dropall-prod:
+	docker run --rm --network liquibase-with-oracle_default -v /Users/seb/projects/liquibase-with-oracle/src/main/resources/changelog:/liquibase/changelog liquibase/liquibase --defaultsFile=/liquibase/changelog/liquibase.properties --username=prod --password=prod dropAll
