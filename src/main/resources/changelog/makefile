@@ -7,6 +7,9 @@ update:
 updateSQL:
 	docker run --rm --network liquibase-with-oracle_default -v /Users/seb/projects/liquibase-with-oracle/src/main/resources/changelog:/liquibase/changelog liquibase/liquibase --defaultsFile=/liquibase/changelog/liquibase.properties --labels=test updateSQL
 
+generateChangeLog:
+	docker run --rm --network liquibase-with-oracle_default -v /Users/seb/projects/liquibase-with-oracle/src/main/resources/changelog:/liquibase/changelog liquibase/liquibase --defaultsFile=/liquibase/changelog/liquibase.properties --labels=test --changeLogFile=/liquibase/changelog/dbchangelog-seb-db.oracle.sql generateChangeLog
+
 dropall:
 	docker run --rm --network liquibase-with-oracle_default -v /Users/seb/projects/liquibase-with-oracle/src/main/resources/changelog:/liquibase/changelog liquibase/liquibase --defaultsFile=/liquibase/changelog/liquibase.properties dropAll
 
