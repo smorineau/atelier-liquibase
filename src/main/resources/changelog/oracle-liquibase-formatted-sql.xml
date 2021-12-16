@@ -6,6 +6,7 @@
   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
   <includeAll path="changelogs/sql/ddl/"/>
   <includeAll path="changelogs/sql/sp/"/>
+  <includeAll path="changelogs/sql/data/"/>
   <includeAll path="changelogs/sql/maintenance/"/>
   <includeAll path="changelogs/sql/hotfix/"/>
   <!-- more <include> tags go here -->
