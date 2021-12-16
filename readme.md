@@ -1,19 +1,24 @@
 # Demo Liquibase
 
-* tester git checkout tag
-* tester gestion des erreurs (en cas d'erreur sql)
-* accéder aux logs liquibase?
-* comment faire pour que seuls les packages modifiés soient ré-exécutés? ie. soit le package est nouveau, soit il a été modifié : on le (re)crée, sinon on ne fait rien.
 
 use cases :
 
-* insertion de données de référence
-* exécution d'un script de création de package
+* création et modification de tables
+* création de plusieurs types d'objets (organisé via différents folders référencés dans le changelog)
+  * ddl
+  * stored procedures
+  * ...
+* différents types d'exécution
+  * 1 seule fois (incrémental, philosophie première de liquibase)
+  * on change (utile pour les SPs ou les vues)
+  * always 
+* gestion des hotfixs via un folder dédié (répercussion du fix avec du cherrypicking pour les versions postérieures)
+* exécution selon l'environnement (à l'aide des `context`)
 
 ### Step 1 : création d'une première table
 
 Source :
-`git checkout`
+`git checkout v1.0`
 
 Exécution :
 `make update`
@@ -30,7 +35,7 @@ Points à aborder:
 ### Step 2 : nouvelle version (DDL)
 
 Source :
-`git checkout`
+`git checkout v1.1`
 
 Points à aborder:
 
